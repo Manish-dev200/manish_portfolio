@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+      Agar aap apni web app root path ke alawa kisi folder me serve kar rahe hain,
+      toh neeche base href ko apne repo ya folder ke hisaab se set karein.
+      Example:
+        <base href="/your-repo-name/">
+      Agar root pe serve kar rahe hain, toh use karein:
+        <base href="/">
+    -->
+    <base href="/">
+
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="A new Flutter project." />
+
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="portfolio" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.jpeg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="manish_profile_img.jpeg" />
+
+    <title>Manish Kumar</title>
+    <link rel="manifest" href="manifest.json" />
+
+    <style>
+        body {
+            background: #000000;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .indicator {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        }
+        .para {
+            color: #ffffff;
+            font-size: 18px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 65%;
+        }
+    </style>
+
+    <script>
+        // The value below is injected by flutter build, do not touch.
+        const serviceWorkerVersion = "677078263";
+    </script>
+
+    <!-- This script adds the flutter initialization JS code -->
+    <script src="flutter.js" defer></script>
+</head>
+<body>
+<div id="loading_indicator" class="con">
+    <img class="indicator" src="./assets/coding.gif" alt="Loading animation" />
+    <p class="para">Please wait...</p>
+</div>
+
+<script>
+    window.addEventListener('load', function(ev) {
+        _flutter.loader.loadEntrypoint({
+            serviceWorker: {
+                serviceWorkerVersion: serviceWorkerVersion,
+            },
+            onEntrypointLoaded: function(engineInitializer) {
+                engineInitializer.initializeEngine().then(function(appRunner) {
+                    appRunner.runApp();
+                });
+            }
+        });
+    });
+
+    window.onload = function() {
+        setTimeout(function() {
+            var loadingIndicator = document.getElementById("loading_indicator");
+            if (loadingIndicator) {
+                loadingIndicator.remove();
+            }
+        }, 10000);
+    };
+</script>
+</body>
+</html>
